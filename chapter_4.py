@@ -17,3 +17,19 @@ dict
 set
 #user-defined-classes
 
+#  id of the variable
+
+number = 10             # create variable
+print(id(number))       # print id of the variable
+
+other_number = number     # copy var to another variable
+print(id(other_number))   # print id of the new var - should be the same
+print(type(other_number)) # print class type of var
+
+# example of the multi string with """ message """
+test_msg = """trata
+ta
+ta
+tttra"""
+
+print(test_msg)

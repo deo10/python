@@ -14,10 +14,17 @@ def my_fn(a, b):
     return c
 
 
-name = input("Enter your name: ")
-city = input("Enter your city: ")
-date = input("Enter your date: ")
-print(name, date, city)
-print(name.capitalize())  # variable as string has own methods
-print(name.count())
-print(name.replace)
+# name = input("Enter your name: ")
+# city = input("Enter your city: ")
+# date = input("Enter your date: ")
+# print(name, date, city)
+# print(name.capitalize())  # variable as string has own methods
+# print(name.count())
+# print(name.replace)
+
+
+number = 10             # create variable
+print(id(number))       # print id of the variable
+
+other_number = number   # copy var to another variable
+print(id(other_number)) # print id of the new var - should be the same
