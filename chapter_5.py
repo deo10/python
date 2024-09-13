@@ -31,4 +31,27 @@ number = int(user_comment) # change type to int
 
 print(type(number)) # check that type is changed
 
+pow_value = (pow(20, number)) # power - возведение в степень
+print(pow_value)
+print(type(pow_value))  # int
 
+# methods for float (10.9 or 10,9)
+
+float_value = 10.9 # power - возведение в степень
+print(float_value)
+print(type(float_value))  # float
+
+print(round(float_value))  # округление к целому
+print(type(round(float_value))) # int
+
+# complex int
+
+complex_a = 7 + 5j
+complex_b = 3 + 6j
+sum = complex_a + complex_b
+
+print(sum)
+# 10 + 11j
+
+print(type(sum))
+# complex

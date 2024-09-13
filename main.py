@@ -1,3 +1,11 @@
+float_value = 10.9 # power - возведение в степень
+print(float_value)
+print(type(float_value))  # float
+
+print(round(float_value))  # округление к целому
+print(type(round(float_value))) # int
+
+
 print('Andrei')
 # print(dir("Python"))
 # print(dir()) #all
