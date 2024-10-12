@@ -1,4 +1,10 @@
-a = {151, 245, 167, 10}
-b = {151, 245, 167, 11}
+my_fruits = ['apple', 'banana', 'orange']
+quantities = [10, 12, 14]
 
-print((a | b) - (a & b))  # - is diff; & is intersection; | is union
+fruit_quan_zip = zip(my_fruits, quantities)
+
+print(fruit_quan_zip)
+#<zip object at 0x000001C96C6E3B00>
+
+fruit_quan_dict = dict(fruit_quan_zip)
+print(fruit_quan_dict)

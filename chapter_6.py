@@ -25,4 +25,17 @@ int_val = 7
 
 print(bool_val + int_val) # works 8
 
-
+# summary
+# name  | Change | Order | non unique values |
+#  
+# list  |    +   |   +   |        +          |
+#
+# dict  |    +   |   X   |        X          |
+#
+# tuple |    X   |   +   |        +          |
+#
+# set   |    +   |   X   |        X          |
+#
+# range |    X   |   +   |        X          |
+#
+# str   |    X   |   +   |        +          |
