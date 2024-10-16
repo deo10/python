@@ -1,10 +1,13 @@
-my_fruits = ['apple', 'banana', 'orange']
-quantities = [10, 12, 14]
+def increase_person_age(person):
+    person_copy = person.copy()
+    person_copy['age'] +=1
+    return person_copy
 
-fruit_quan_zip = zip(my_fruits, quantities)
+person_one = {
+    'name': 'Bob',
+    'age': 21
+}
 
-print(fruit_quan_zip)
-#<zip object at 0x000001C96C6E3B00>
-
-fruit_quan_dict = dict(fruit_quan_zip)
-print(fruit_quan_dict)
+new_person = increase_person_age(person_one)
+print(new_person['age']) #22
+print(person_one['age']) #21 did not changed
