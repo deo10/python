@@ -31,6 +31,7 @@ print(res)
 # 23
 
 # example of function with changeable object
+# in this case both var and function result would be the same, so we changed var value
 
 def increase_person_age(person):
     person['age'] +=1
@@ -43,4 +44,20 @@ person_one = {
 
 increase_person_age(person_one)
 print(person_one['age'])  #22
+
+# to prevent changing var we can use copy
+
+def increase_person_age(person):
+    person_copy = person.copy() # copy the dict (we can use deepcopy for multi stage)
+    person_copy['age'] +=1
+    return person_copy
+
+person_one = {
+    'name': 'Bob',
+    'age': 21
+}
+
+new_person = increase_person_age(person_one)
+print(new_person['age']) #22
+print(person_one['age']) #21 did not changed
 
