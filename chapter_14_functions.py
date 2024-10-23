@@ -1,5 +1,12 @@
 # Functions
 
+## best practices ##
+# name based on purpose
+# name should have a verb like convert_data
+# one function should do one task
+# it's not recommended to change external variables (use copy)
+
+
 # define function sum
 def sum(a, b):
     c = a + b
