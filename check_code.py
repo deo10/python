@@ -1,10 +1,13 @@
-my_car = {
+dict1 = {
     'brand': 'Toyota',
     'price': 10000
 }
 
-print('brand' in my_car) # True
+dict2 = {
+    'brand': 'Toyota',
+    'price': 1000
+}
 
-print('year' in my_car) # False
-
-print('year' not in my_car) # True
+compare = dict1 == dict2
+compare and print('dicts are queval')
+compare or print('dicts are NOT queval')
