@@ -1,33 +1,10 @@
-users = [
-    {
-        'user_id': 134,
-        'user_name': 'Alice'
-    },
-    {
-        'user_id': 831,
-        'user_name': 'Bob'
-    },
-        {
-        'user_id': 531,
-        'user_name': 'Crab'
-    }
-]
+import random
 
-# using unpack list into 3 vars
-
-Alice, Bob, Crab = users
-
-print(Alice)
-print(Bob)
-print(Crab) 
-
-# create function with two args
-
-def fun_two(user_name, user_id):
-    return f"User name is {user_name} and ID is {user_id}"
-    
-#invoke function three times
-
-print(fun_two(**Alice))
-print(fun_two(**Bob))
-print(fun_two(**Crab))
+random_num = random.randint(1, 5)
+while True:
+    num = int(input("Guess the number from 1 to 5: "))
+    if num != random_num:
+        print("Try again...")
+        continue
+    print("Congrats!", random_num)
+    break
