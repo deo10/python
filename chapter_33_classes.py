@@ -146,3 +146,61 @@ print(Comment.total_comments) # 1
 second_comment = Comment("Second comment")
 
 print(Comment.total_comments) # 2
+
+
+
+################################
+### Magic Methods in Classes ###
+
+class Comment:
+    def __init__(self, text):
+        self.text = text
+        self.votes_qty = 0
+        
+    def upvote(self):
+        self.votes_qty += 1
+    
+    # adding magic method in custom class    
+    def __add__(self, other): #add = "+"
+        return (f"{self.text} {other.text}",
+               self.votes_qty + other.votes_qty)
+    
+    # adding magic method in custom class    
+    def __eq__(self, other):
+        return self.text == other.text and self.votes_qty == other.votes_qty
+        
+#Creating two instances of the Comment class
+first_comment = Comment("First comment")
+first_comment.upvote()
+second_comment = Comment("Second comment")
+second_comment.upvote()
+
+
+print(first_comment + second_comment) # here we are using magic method __add__ from our class
+# ('First comment Second comment', 2)
+
+print(first_comment == second_comment) # here we are using magic method __eq__ from our class
+# False
+
+first_comment = Comment("First comment")
+first_comment.upvote()
+second_comment = Comment("First comment")
+second_comment.upvote()
+
+print(first_comment == second_comment)
+# True
+
+
+## Class inheritance ##
+
+class ExtendedList(list): # Creating custom class that inherit parent class (list)
+    def print_list_info(self):
+        print(f"List has {len(self)} elements")
+
+custom_list = ExtendedList([3, 5, 2])
+
+custom_list.print_list_info()
+# List has 3 elements
+
+print(list.__subclasses__())
+# [<class '_frozen_importlib._List'>, <class '__main__.ExtendedList'>]
