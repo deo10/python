@@ -1,38 +1,45 @@
-float_value = 10.9 # power - возведение в степень
-print(float_value)
-print(type(float_value))  # float
+test_file = open('test.txt', 'w') # open the file in write mode
 
-print(round(float_value))  # округление к целому
-print(type(round(float_value))) # int
+print(test_file)
+# <_io.TextIOWrapper name='test.txt' mode='w' encoding='cp1252'>
 
+print(type(test_file))
+# <class '_io.TextIOWrapper'>
 
-print('Andrei')
-# print(dir("Python"))
-# print(dir()) #all
-# print(dir(__builtins__)) #all builtins
+test_file.write('Hello, World!\n') # write to file
+test_file.write('abracadabra') # write to file
 
+test_file.close() # close the file
 
-name = "Topchik"
-print(name.upper())  # upper is attribute of the str
+test_file = open('test.txt', 'r') # open the file in read mode
 
+print(test_file.read()) # read from file
 
-def my_fn(a, b):
-    a = 1 + a
-    c = a + b
-    return c
+test_file.close() # close the file
 
 
-# name = input("Enter your name: ")
-# city = input("Enter your city: ")
-# date = input("Enter your date: ")
-# print(name, date, city)
-# print(name.capitalize())  # variable as string has own methods
-# print(name.count())
-# print(name.replace)
+# option with, close is not required
 
+with open('test.txt', 'w') as test_file:
+    test_file.write('str1\n') # write to file
+    test_file.write('str2\n') # write to file
+    test_file.write('str3\n') # write to file
+    
+with open('test.txt', 'r') as test_file:
+    print(test_file.read()) # read from file
+    
+with open('test.txt', 'r') as test_file:
+    lines = test_file.readlines() # read from file as list of lines [line1, line2, ...]
+    for line in lines:
+        print(line)
+# Hello, World!
+# abracadabra
+# focus
 
-number = 10             # create variable
-print(id(number))       # print id of the variable
-
-other_number = number   # copy var to another variable
-print(id(other_number)) # print id of the new var - should be the same
+with open('test.txt', 'r') as test_file:
+    while True:
+        line = test_file.readline() # read from file line by line
+        print(line)
+        if not line:
+            break
+        
