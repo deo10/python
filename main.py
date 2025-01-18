@@ -1,45 +1,26 @@
-test_file = open('test.txt', 'w') # open the file in write mode
+import re
 
-print(test_file)
-# <_io.TextIOWrapper name='test.txt' mode='w' encoding='cp1252'>
+# Check password 8 symbols, required values are uppercase, lowercase, digits, special characters
+def check_password(password):
+    password_regex = r'^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8}$'
+    password_check_pattern = re.compile(password_regex)
+    validation_result = "Password is valid" if password_check_pattern.fullmatch(password) else "Password is invalid"
+    return (password, validation_result)
 
-print(type(test_file))
-# <class '_io.TextIOWrapper'>
+# This regular expression pattern ensures:
+# - `(?=.*[A-Z])` - at least one uppercase letter
+# - `(?=.*[a-z])` - at least one lowercase letter
+# - `(?=.*\d)` - at least one digit
+# - `(?=.*[@$!%*?&])` - at least one special character from the set `@$!%*?&`
+# - `[A-Za-z\d@$!%*?&]{8}` - exactly 8 characters long containing only allowed characters
 
-test_file.write('Hello, World!\n') # write to file
-test_file.write('abracadabra') # write to file
-
-test_file.close() # close the file
-
-test_file = open('test.txt', 'r') # open the file in read mode
-
-print(test_file.read()) # read from file
-
-test_file.close() # close the file
+# Prompt user for password input with length check
+while True:
+    user_password = input("Enter your password (exactly 8 characters): ")
+    if len(user_password) == 8:
+        break
+    else:
+        print("Password must be exactly 8 characters long. Please try again.")
 
 
-# option with, close is not required
-
-with open('test.txt', 'w') as test_file:
-    test_file.write('str1\n') # write to file
-    test_file.write('str2\n') # write to file
-    test_file.write('str3\n') # write to file
-    
-with open('test.txt', 'r') as test_file:
-    print(test_file.read()) # read from file
-    
-with open('test.txt', 'r') as test_file:
-    lines = test_file.readlines() # read from file as list of lines [line1, line2, ...]
-    for line in lines:
-        print(line)
-# Hello, World!
-# abracadabra
-# focus
-
-with open('test.txt', 'r') as test_file:
-    while True:
-        line = test_file.readline() # read from file line by line
-        print(line)
-        if not line:
-            break
-        
+print(check_password(user_password))
