@@ -134,6 +134,23 @@ first_two_ratings = rating[:2]
 middle_ratings = rating[1:-1]  # from 1 till the end except last
 last_two_ratings = rating[-2:]
 
+list1 = [1, 66, "python", [11, 55, "cat"], [ ], 2.22, True]
+print(list1[0:4]) 
+# 0 - Start from the element at index 0 (the first element).
+# 4 - Go up to, but not including, the element at index 4.
+# [1, 66, 'python', [11, 55, 'cat']]
+
+# This line prints a slice of `list1` using the slicing syntax `list1[::3]`.
+list1 = [10, 11, 12, 13, 14]
+print(list1[::3])
+# [10 13]
+
+#    The slicing syntax `list1[::3]` means:
+#    - `:` - Start from the beginning of the list.
+#    - `:` - Go until the end of the list.
+#    - `3` - Use a step of `3`.
+
+
 # copy lists
 
 my_cars = ['BMW', 'Mercedes']

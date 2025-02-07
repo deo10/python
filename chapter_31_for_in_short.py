@@ -136,3 +136,9 @@ scores = {k: v for k, v in enumerate(my_scores)}
 
 print(scores)
 {0: -3, 1: 1, 2: 0, 3: 10, 4: -20, 5: 5}
+
+# 
+for x in [0, 2, 1, 3]:
+    for y in [0, 4, 1, 2]:
+        print('#')
+# for each value in list it will print "#" symbol
