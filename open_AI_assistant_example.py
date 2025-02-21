@@ -1,10 +1,12 @@
 # pip3 install openai
 # pip3 install python-dotenv
+# pip3 install pandas
 
 # filepath: /c:/Users/Andrei_Panov/Documents/code/python/open_AI.py
 from openai import OpenAI
 from dotenv import load_dotenv
 import os
+import pandas as pd
 
 # Load environment variables from .env file
 load_dotenv()
@@ -18,18 +20,23 @@ if not openai_api_key:
 # Set the API key
 client = OpenAI(api_key=openai_api_key)
 
-# Define the question
-prompt = "Who is better MJ or LeBron?"
+# assistant code
+# kaggle as source for test dataset
 
-# Make the request to OpenAI
-def prompt_engine(prompt):
+# read csv file
+
+df = pd.read_csv("/Users/Andrei_Panov/Downloads/car_price_dataset.csv")
+
+# function reads the file and provides output
+
+def analyze_data(df):
     response = client.chat.completions.create(
         model="gpt-4o-mini",
-        messages=[{"role":"user", "content":prompt},
-                  {"role":"system", "content":"You are noobie in sport"}], #adding a role for reply
-        max_tokens=10,
-        temperature=0,
+        messages=[{"role":"user", "content": f"You are a research assistant. Provide key insights from {df} in point form"}],
+        max_tokens=500,
+        temperature=0.2,
 )
+    return response.choices[0].message.content
 
-# Print the request and result
-print(prompt_engine(prompt))
+
+print(analyze_data(df))

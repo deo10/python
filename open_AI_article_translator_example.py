@@ -18,18 +18,25 @@ if not openai_api_key:
 # Set the API key
 client = OpenAI(api_key=openai_api_key)
 
-# Define the question
-prompt = "Who is better MJ or LeBron?"
+# article
+
+article = "Анчелотти о словах Пепа «вероятность пройти дальше – 1%»: «На самом деле он так не думает, как и мы не думаем, что наши шансы – 99%. У «Реала» есть небольшое преимущество»"
+
+# prompt
+
+prompt = f"Translate the following {article}"
 
 # Make the request to OpenAI
-def prompt_engine(prompt):
+def article_translator(prompt):
     response = client.chat.completions.create(
         model="gpt-4o-mini",
         messages=[{"role":"user", "content":prompt},
-                  {"role":"system", "content":"You are noobie in sport"}], #adding a role for reply
+                  {"role":"assistant", "content":"You are professional translator"}, #adding a role for reply
+                  {"role":"system", "content":"Direct English translator"}], #adding style
         max_tokens=10,
         temperature=0,
 )
+    return response.choices[0].message.content
 
-# Print the request and result
-print(prompt_engine(prompt))
+# Return the receipe
+print(article_translator(prompt))
