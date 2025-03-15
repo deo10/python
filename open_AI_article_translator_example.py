@@ -2,7 +2,7 @@
 # pip3 install python-dotenv
 
 # filepath: /c:/Users/Andrei_Panov/Documents/code/python/open_AI.py
-from openai import OpenAI
+import openai
 from dotenv import load_dotenv
 import os
 
@@ -16,7 +16,7 @@ if not openai_api_key:
     raise ValueError("API key not found. Please set the OPENAI_API_KEY environment variable.")
 
 # Set the API key
-client = OpenAI(api_key=openai_api_key)
+client = openai.OpenAI(api_key=openai_api_key)
 
 # article
 
@@ -24,7 +24,7 @@ article = "Анчелотти о словах Пепа «вероятность 
 
 # prompt
 
-prompt = f"Translate the following {article}"
+prompt = f"Translate the following article: {article}"
 
 # Make the request to OpenAI
 def article_translator(prompt):
@@ -33,7 +33,7 @@ def article_translator(prompt):
         messages=[{"role":"user", "content":prompt},
                   {"role":"assistant", "content":"You are professional translator"}, #adding a role for reply
                   {"role":"system", "content":"Direct English translator"}], #adding style
-        max_tokens=10,
+        max_tokens=100,
         temperature=0,
 )
     return response.choices[0].message.content

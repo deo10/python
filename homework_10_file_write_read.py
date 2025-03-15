@@ -9,7 +9,6 @@ my_dir = Path('/Users/Andrei_Panov/Documents/code/python/files')
 
 if not my_dir.exists():
     my_dir.mkdir()
-    
 with open(my_dir / 'first.txt', 'w') as test_file:
     test_file.write('str1\n') # write to file
     test_file.write('str2\n') # write to file
@@ -52,4 +51,6 @@ with open(my_dir / 'first.txt', 'w') as test_file:
 
 # delete folder
 if my_dir.exists():
-  my_dir.rmdir()
+    for file in my_dir.iterdir():
+        file.unlink()
+    my_dir.rmdir()
